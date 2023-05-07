@@ -10,7 +10,7 @@ function App() {
       label={"Country"}
       labelSettings={{ required: true }}
       value={country}
-      handleChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+      handleChange={(event) => {
         const country = event?.target?.value;
         setCountry(country);
       }}
