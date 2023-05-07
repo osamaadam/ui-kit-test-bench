@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import CountrySelect from "@saloodo/ui-kit/es/molecules/country_select";
+import { useState } from "react";
 
 function App() {
+  const [country, setCountry] = useState("GER");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CountrySelect
+      countries={[{ label: "Germany", value: "GER" }]}
+      name="country"
+      label={"Country"}
+      labelSettings={{ required: true }}
+      value={country}
+      handleChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+        const country = event?.target?.value;
+        setCountry(country);
+      }}
+      touched={false}
+      isLoading={false}
+    />
   );
 }
 
